@@ -1,7 +1,7 @@
 const main = document.querySelector(`main`);
 
 const teamApi = async () => {
-  const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/teams`)
+  const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/teams`)
   const teamJson = await response.json();
 
   console.log(teamJson)
@@ -22,17 +22,17 @@ const teamApi = async () => {
       return `<li data-id="${player.id}">${player.name}</li>`;
     });
 
-      teamRoster.innerHTML = players.join(``);
-      teamDiv.appendChild(teamRoster);
-      teamName.addEventListener(`click`, () => {
-        if(teamRoster.style.display === `none`){
-          teamRoster.style.display = `block`;
-        } else {
-          teamRoster.style.display = `none`;
-        }
-      });
+    teamRoster.innerHTML = players.join(``);
+    teamDiv.appendChild(teamRoster);
+    teamName.addEventListener(`click`, () => {
+      if (teamRoster.style.display === `none`) {
+        teamRoster.style.display = `block`;
+      } else {
+        teamRoster.style.display = `none`;
+      }
+    });
 
-      main.appendChild(teamDiv);
+    main.appendChild(teamDiv);
   });
 }
 // teamApi();
@@ -45,9 +45,9 @@ const renderAllPuppies = async () => {
   teamList.forEach((singlePuppy) => {
     singlePuppy.addEventListener(`click`, async (event) => {
       const puppyIdClicked = event.target.dataset.id;
-      const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/players/${puppyIdClicked}`)
+      const response = await fetch(`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/players/${puppyIdClicked}`)
       const playerDetails = await response.json();
-      
+
       main.innerHTML = `
       <div class="puppy-details">
       <h2>${playerDetails.data.player.name}</h2>
@@ -58,8 +58,8 @@ const renderAllPuppies = async () => {
       `;
 
       const button = document.querySelector(`button`)
-      button.addEventListener('click' , () => {
-        main.innerHTML= ``;
+      button.addEventListener('click', () => {
+        main.innerHTML = ``;
         renderAllPuppies();
       })
 
@@ -72,7 +72,7 @@ renderAllPuppies();
 
 
 
-// initial test to append list of puppies to page - found `fluff` array to be empty. 
+// initial test to append list of puppies to page - found `fluff` array to be empty.
 // const puppyApi = async () => {
 //   const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2409-ftb-et-web-ft/players`)
 //   const responseJson = await response.json();
