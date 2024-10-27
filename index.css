@@ -2,14 +2,21 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  color: #A18276;
+  text-shadow: 1px 1px 0 black; 
 }
 
 html {
-  background-color: rgb(154, 147, 147);
+  background-color: #aac0aa
 }
 
 h2 {
   cursor: pointer;
+  color: #A18276;
+  outline: 2px;
+  text-shadow: 1px 1px 0 black; 
+  
+  
 }
 
 ul {
@@ -35,4 +42,16 @@ ul {
   transition: background-color 0.3s, transform 0.3s; 
   width: auto;
   max-width: 200px;
+}
+
+li {
+  cursor: pointer;
+  color: #A18276;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+li:hover {
+  color: #CBE896;
+  font-weight: bolder;
 }
